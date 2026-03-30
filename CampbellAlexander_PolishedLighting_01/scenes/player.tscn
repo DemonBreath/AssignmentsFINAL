@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddi6u8qemukbv"]
+
+[ext_resource type="Script" uid="uid://cpv5hyfe2pkri" path="res://player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://yirf41exe3g7" path="res://assets/brackeys_3d_game_assets/skeleton/skeleton_mage.glb" id="2_qhqgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
+
+[node name="Player" type="CharacterBody3D" unique_id=561438172]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1837687453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dqkch")
+
+[node name="skeleton_mage" parent="." unique_id=134452568 instance=ExtResource("2_qhqgy")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1621468463]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 0)
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=301549179]
