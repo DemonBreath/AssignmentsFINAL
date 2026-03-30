@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dm4sd4gboqsdu"]
+
+[ext_resource type="PackedScene" uid="uid://e6qxqxvotn14" path="res://final1turtle/more assets/Meshy_AI_Cigarette_0328032902_texture.glb" id="1_dkftn"]
+
+[sub_resource type="Curve" id="Curve_35c7g"]
+_data = [Vector2(0, 0.19101131), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.8986486, 0.8764045), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n068f"]
+curve = SubResource("Curve_35c7g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g8a64"]
+direction = Vector3(0, 1, 0)
+spread = 75.0
+initial_velocity_min = 1.1999999
+initial_velocity_max = 3.1999998
+gravity = Vector3(0, 0.6, 0)
+damping_min = 0.6
+damping_max = 0.8
+scale_curve = SubResource("CurveTexture_n068f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvldv"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.58431375, 0.58431375, 0.58431375, 0.08235294)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_nb1nt"]
+material = SubResource("StandardMaterial3D_uvldv")
+size = Vector2(0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u834y"]
+albedo_color = Color(1, 0.30588236, 0.13333334, 1)
+emission_enabled = true
+emission = Color(1, 0.30588236, 0.13333334, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_w3v2p"]
+material = SubResource("StandardMaterial3D_u834y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35c7g"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.6156863, 0, 0, 0.40392157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_35c7g"]
+material = SubResource("StandardMaterial3D_35c7g")
+
+[node name="LeftHandCigaretteAnchor" type="Node3D" unique_id=1538188487]
+transform = Transform3D(0.40000004, -4.656613e-10, -1.8626451e-09, 4.656613e-10, 0.39999998, 0, 1.8626451e-09, 7.450581e-09, 0.40000004, 0, 0, 0)
+
+[node name="Cigarette" parent="." unique_id=802352001 instance=ExtResource("1_dkftn")]
+transform = Transform3D(-0.12671825, 0.047788627, 0.26769158, 0.17433915, 0.24092363, 0.039517775, -0.2086826, 0.17225589, -0.12953642, -0.38705087, 0.30637693, -0.49737898)
+
+[node name="SmokeTip" type="Node3D" parent="Cigarette" unique_id=1515147368]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Cigarette/SmokeTip" unique_id=296000525]
+transform = Transform3D(1, 2.9802322e-08, 7.4505806e-08, 0, 1, -2.9802322e-08, 1.4901161e-08, -2.9802322e-08, 1.0000005, 0.96458256, -0.0110569, 0.004088998)
+amount = 300
+lifetime = 4.0
+preprocess = 3.0
+randomness = 0.7
+process_material = SubResource("ParticleProcessMaterial_g8a64")
+draw_pass_1 = SubResource("QuadMesh_nb1nt")
+
+[node name="TipGlow" type="MeshInstance3D" parent="Cigarette" unique_id=1612093708]
+transform = Transform3D(0.17, 2.4171724e-08, -6.768082e-08, -2.4171724e-08, 0.17, 3.6594968e-14, 6.768082e-08, -2.6971662e-14, 0.17, 0.92399454, -0.00056552887, 0.0021870136)
+mesh = SubResource("SphereMesh_w3v2p")
+
+[node name="TipGlow2" type="MeshInstance3D" parent="Cigarette" unique_id=209056497]
+transform = Transform3D(0.18, 7.993606e-17, -2.6822091e-09, 0, 0.18, 5.3644182e-09, 2.6822091e-09, -5.3644182e-09, 0.18, 0.955, 0.007, -0.002)
+mesh = SubResource("SphereMesh_35c7g")
