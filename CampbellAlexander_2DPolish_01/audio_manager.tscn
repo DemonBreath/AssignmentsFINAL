@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bqqqly6marlo5"]
+
+[ext_resource type="Script" uid="uid://cq6yqbk6ln0yr" path="res://audio_manager.gd" id="1_6jj5d"]
+[ext_resource type="AudioStream" uid="uid://clp4abeyk0uqr" path="res://nickpanekaiassets-exploration-chiptune-rpg-adventure-theme-336428.mp3" id="1_bq1v2"]
+[ext_resource type="AudioStream" uid="uid://cc667ixrysqmv" path="res://freesound_community-health-pickup-6860.mp3" id="2_6jj5d"]
+
+[node name="AudioManager" type="Node" unique_id=216812406]
+script = ExtResource("1_6jj5d")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2024626705]
+stream = ExtResource("1_bq1v2")
+autoplay = true
+bus = &"Music"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1125252911]
+stream = ExtResource("2_6jj5d")
+bus = &"SFX"
